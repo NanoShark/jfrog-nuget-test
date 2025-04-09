@@ -23,7 +23,7 @@ pipeline {
         stage('Setup Tools') {
             steps {
                 // Install and configure JFrog CLI
-                sh '''
+                bash '''
                     sudo su
                     curl -fL https://install-cli.jfrog.io | sh
                     export PATH=$PATH:$HOME/.jfrog/bin
