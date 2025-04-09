@@ -24,6 +24,7 @@ pipeline {
             steps {
                 // Install and configure JFrog CLI
                 sh '''
+                    sudo su
                     curl -fL https://install-cli.jfrog.io | sh
                     export PATH=$PATH:$HOME/.jfrog/bin
                     jfrog config add artifactory --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_CREDS_USR} --password=${ARTIFACTORY_CREDS_PSW} --interactive=false
