@@ -1,0 +1,53 @@
+
+# Jenkins volume data
+volume/
+jenkins_home/
+
+# Docker volume data
+docker/
+
+# Environment variables
+.env
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+.DS_Store
+
+# Log files
+*.log
+logs/
+
+# Temp files
+*.tmp
+*.temp
+.*.swp
+
+# Build artifacts
+target/
+build/
+dist/
+out/
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Test coverage
+coverage/
+
+# Secrets & keys
+*.pem
+*.key
+*.secret
+secrets/
+
+# Project specific backups or generated files
+*~
+*.bak
+*.backup

@@ -1,0 +1,12 @@
+workflow-aggregator:latest
+git:latest
+docker-workflow:latest
+blueocean:latest
+credentials:latest
+ssh-slaves:latest
+ssh-credentials:latest
+docker-plugin:latest
+matrix-auth:latest
+job-dsl:latest
+pipeline-stage-view:latest
+pipeline-model-definition:latest
