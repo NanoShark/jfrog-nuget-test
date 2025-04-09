@@ -36,13 +36,29 @@ pipeline{
         
         stage('Test') {
             steps {
-                sh 'dotnet test --configuration Release --no-build'
+                script {
+                    sh """
+                    pwd
+                    ls
+                    cd my-app
+                    dotnet test --configuration Release --no-build
+                    """
+                }
+                
             }
         }
         
         stage('Package') {
             steps {
-                sh 'dotnet pack --configuration Release --no-build --output ./nupkgs'
+                script {
+                    sh """
+                    pwd
+                    ls
+                    cd my-app
+                    dotnet pack --configuration Release --no-build --output ./nupkgs
+                    """
+                }
+                
             }
        
         }
