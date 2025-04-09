@@ -1,0 +1,15 @@
+/home/michael/devops/jfrog-nuget-test/my-app/bin/Debug/net8.0/my-app
+/home/michael/devops/jfrog-nuget-test/my-app/bin/Debug/net8.0/my-app.deps.json
+/home/michael/devops/jfrog-nuget-test/my-app/bin/Debug/net8.0/my-app.runtimeconfig.json
+/home/michael/devops/jfrog-nuget-test/my-app/bin/Debug/net8.0/my-app.dll
+/home/michael/devops/jfrog-nuget-test/my-app/bin/Debug/net8.0/my-app.pdb
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.GeneratedMSBuildEditorConfig.editorconfig
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.AssemblyInfoInputs.cache
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.AssemblyInfo.cs
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.csproj.CoreCompileInputs.cache
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.sourcelink.json
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.dll
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/refint/my-app.dll
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.pdb
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/my-app.genruntimeconfig.cache
+/home/michael/devops/jfrog-nuget-test/my-app/obj/Debug/net8.0/ref/my-app.dll
