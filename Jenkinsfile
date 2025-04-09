@@ -27,6 +27,7 @@ pipeline{
                     sh """
                     pwd
                     ls
+                    cd my-app
                     dotnet build --configuration Release --no-restore
                     """
                 }
