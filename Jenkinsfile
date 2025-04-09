@@ -64,16 +64,5 @@ pipeline{
         }
 
     }
-     post {
-        always {
-            // Clean workspace after build
-            cleanWs()
-        }
-        success {
-            echo 'Build succeeded! Artifacts have been published to JFrog Artifactory.'
-        }
-        failure {
-            echo 'Build failed! Check the logs for details.'
-        }
-    }
+     
 }
