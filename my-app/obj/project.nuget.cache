@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "dgSpecHash": "pdmknt/PY9BEo70znkrrFVfu92+hbCCkU80wVuqgGZIBj2/HYefPm68ncEVlntbOvIaqgdpp577GwmwmA00eDw==",
+  "success": true,
+  "projectFilePath": "/home/michael/devops/jfrog-nuget-test/my-app/my-app.csproj",
+  "expectedPackageFiles": [],
+  "logs": []
+}
