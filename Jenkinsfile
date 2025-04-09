@@ -6,9 +6,9 @@ pipeline {
     environment {
         // JFrog settings
         JFROG_CLI_HOME_DIR = "${WORKSPACE}/.jfrog"
-        ARTIFACTORY_URL = 'https:///artifactory/api/nuget/my-app-nuget'
+        ARTIFACTORY_URL = 'https://trialo8nx47.jfrog.io/artifactory'
         ARTIFACTORY_CREDS = credentials('artifactory-credentials')
-        NUGET_REPO = 'nuget-local'
+        NUGET_REPO = 'my-app-nuget'
         
         // .NET settings
         DOTNET_CLI_HOME = "${WORKSPACE}/.dotnet"
