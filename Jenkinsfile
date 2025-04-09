@@ -33,8 +33,8 @@ pipeline {
                 sh '''
                     #curl -fL https://install-cli.jfrog.io | sh
                     export PATH=$PATH:$HOME/.jfrog/bin
-                    jfrog config add artifactory --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_CREDS_USR} --password=${ARTIFACTORY_CREDS_PSW} --interactive=false
-                    jfrog rt c show
+                    jf config add artifactory --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_CREDS_USR} --password=${ARTIFACTORY_CREDS_PSW} --interactive=false
+                    jf rt c show
                 '''
             }
         }
@@ -42,7 +42,7 @@ pipeline {
         stage('Restore') {
             steps {
                 sh '''
-                    jfrog rt dotnet-restore --server-id-resolve=artifactory --repo-resolve=${NUGET_REPO}
+                    jf rt dotnet-restore --server-id-resolve=artifactory --repo-resolve=${NUGET_REPO}
                 '''
             }
         }
@@ -85,7 +85,7 @@ pipeline {
         stage('Scan with JFrog Xray') {
             steps {
                 sh '''
-                    jfrog rt bp artifacts/ scan --fail=false
+                    jf rt bp artifacts/ scan --fail=false
                 '''
             }
         }
@@ -93,7 +93,7 @@ pipeline {
         stage('Publish to Artifactory') {
             steps {
                 sh '''
-                    jfrog rt dotnet-push artifacts/*.nupkg ${NUGET_REPO} --server-id=artifactory --detailed-summary
+                    jf rt dotnet-push artifacts/*.nupkg ${NUGET_REPO} --server-id=artifactory --detailed-summary
                 '''
             }
         }
@@ -101,7 +101,7 @@ pipeline {
         stage('Create Build Info') {
             steps {
                 sh '''
-                    jfrog rt build-publish
+                    jf rt build-publish
                 '''
             }
         }
