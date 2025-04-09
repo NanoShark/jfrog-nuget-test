@@ -3,9 +3,9 @@ FROM ubuntu:22.04
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install necessary packages
+# Install necessary packages and Java 17 instead of Java 11
 RUN apt-get update && \
-    apt-get install -y openjdk-11-jdk \
+    apt-get install -y openjdk-17-jdk \
                        git \
                        curl \
                        apt-transport-https \
@@ -16,8 +16,12 @@ RUN apt-get update && \
                        openssh-server \
                        python3 \
                        python3-pip && \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+    # Install Docker CLI
+    mkdir -p /etc/apt/keyrings && \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+    chmod a+r /etc/apt/keyrings/docker.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | \
+    tee /etc/apt/sources.list.d/docker.list > /dev/null && \
     apt-get update && \
     apt-get install -y docker-ce-cli && \
     apt-get clean && \
@@ -27,7 +31,7 @@ RUN apt-get update && \
 RUN useradd -m -s /bin/bash jenkins && \
     echo "jenkins:jenkins" | chpasswd && \
     mkdir -p /home/jenkins/.jenkins && \
-    mkdir -p /home/jenkins/agent && \
+    mkdir -p /home/jenkins/workspace && \
     chown -R jenkins:jenkins /home/jenkins
 
 # Add jenkins to docker group
@@ -39,19 +43,19 @@ RUN mkdir -p /var/run/sshd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config && \
     sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/' /etc/ssh/sshd_config
 
-# Download the Jenkins agent
-RUN curl -s -o /home/jenkins/agent.jar https://repo.jenkins-ci.org/public/org/jenkins-ci/main/remoting/latest/remoting-latest.jar && \
-    chmod 755 /home/jenkins && \
-    chmod 644 /home/jenkins/agent.jar
-
-# Create start-agent script
-COPY start-agent.sh /home/jenkins/start-agent.sh
-RUN chmod +x /home/jenkins/start-agent.sh && \
-    chown jenkins:jenkins /home/jenkins/start-agent.sh
+# Set working directory
+WORKDIR /home/jenkins
 
 # Switch to jenkins user
 USER jenkins
-WORKDIR /home/jenkins
+
+# Create a simple startup script
+RUN echo '#!/bin/bash\n\
+echo "Starting Jenkins agent connection..."\n\
+curl -sO "http://jenkins:8080/jnlpJars/agent.jar"\n\
+java -jar agent.jar -url http://jenkins:8080 -secret "$AGENT_SECRET" -name "jenkins-slave" -webSocket -workDir "/home/jenkins/workspace"\n\
+' > /home/jenkins/start-agent.sh && \
+    chmod +x /home/jenkins/start-agent.sh
 
 # Entry point
 ENTRYPOINT ["/home/jenkins/start-agent.sh"]

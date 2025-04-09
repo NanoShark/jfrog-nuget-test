@@ -3,7 +3,7 @@ version: '3.8'
 services:
     jenkins:
         build: ./jenkins/master
-        image: jenkins-jb/master:1.0
+        image: my-jenkins/master:1.0
         container_name: jenkins
         ports:
             - '8080:8080'
@@ -16,15 +16,16 @@ services:
 
     jenkins-slave:
         build: ./jenkins/slave
-        image: jenkins-jb/slave:1.0
+        image: my-jenkins/slave:1.0
+        container_name: jenkins-slave
         restart: always
         environment:
-            - 'JENKINS_URL=http://jenkins:8080'
+            - 'AGENT_SECRET=bfcd229adc127aa82a0bb4427ab8aceb173bc95e96efb51e5ceb960f8786d36a'
         ports:
             - "5005-5010:5005-5010"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock  # Expose Docker daemon
-            - ./volume:/home/jenkins # Avoid MySQL volume mount issue
+            - jenkins_workspace:/home/jenkins/workspace  # Workspace data volume
         networks: 
             - jb
         depends_on:
@@ -34,4 +35,5 @@ networks:
   jb:
 
 volumes:
-  jenkins_home:  # Persistent Jenkins home volume
+  jenkins_home:    # Persistent Jenkins home volume
+  jenkins_workspace:  # Persistent Jenkins slave workspace volume

@@ -1,0 +1,40 @@
+Starting Jenkins Agent...
+Jenkins URL: http://jenkins:8080
+Agent Name: jenkins-slave
+Work Directory: /home/jenkins/workspace
+Downloading agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Failed to download agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Checking connectivity to Jenkins master...
+Starting Jenkins Agent...
+Jenkins URL: http://jenkins:8080
+Agent Name: jenkins-slave
+Work Directory: /home/jenkins/workspace
+Downloading agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Failed to download agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Checking connectivity to Jenkins master...
+Starting Jenkins Agent...
+Jenkins URL: http://jenkins:8080
+Agent Name: jenkins-slave
+Work Directory: /home/jenkins/workspace
+Downloading agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Failed to download agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Checking connectivity to Jenkins master...
+
+    
+    
+    <!DOCTYPE html><html lang="en"><head resURL="/static/34c287d2" data-rooturl="" data-resurl="/static/34c287d2" data-imagesurl="/static/34c287d2/images"><title>Starting Jenkins</title><meta name="ROBOTS" content="NOFOLLOW"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/static/34c287d2/jsbundles/simple-page.css" type="text/css"></head><body><div class="simple-page" role="main"><div class="app-jenkins-booting"><div class="logo"><img src="/static/34c287d2/images/svgs/logo.svg" alt="Jenkins logo"></div><h1 class="loading"><p class="jenkins-spinner">Jenkins is getting ready to work</h1><p class="restarting">Your browser will reload automatically when Jenkins is ready.</div></div><script src="/static/34c287d2/scripts/loading.js" type="text/javascript"></script></body></html>Starting Jenkins Agent...
+Jenkins URL: http://jenkins:8080
+Agent Name: jenkins-slave
+Work Directory: /home/jenkins/workspace
+Downloading agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Failed to download agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Checking connectivity to Jenkins master...
+
+    
+    
+    <!DOCTYPE html><html lang="en"><head resURL="/static/34c287d2" data-rooturl="" data-resurl="/static/34c287d2" data-imagesurl="/static/34c287d2/images"><title>Starting Jenkins</title><meta name="ROBOTS" content="NOFOLLOW"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="/static/34c287d2/jsbundles/simple-page.css" type="text/css"></head><body><div class="simple-page" role="main"><div class="app-jenkins-booting"><div class="logo"><img src="/static/34c287d2/images/svgs/logo.svg" alt="Jenkins logo"></div><h1 class="loading"><p class="jenkins-spinner">Jenkins is getting ready to work</h1><p class="restarting">Your browser will reload automatically when Jenkins is ready.</div></div><script src="/static/34c287d2/scripts/loading.js" type="text/javascript"></script></body></html>Starting Jenkins Agent...
+Jenkins URL: http://jenkins:8080
+Agent Name: jenkins-slave
+Work Directory: /home/jenkins/workspace
+Downloading agent.jar from http://jenkins:8080/jnlpJars/agent.jar
+Connecting to Jenkins master with secret...
