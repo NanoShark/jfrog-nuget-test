@@ -20,6 +20,13 @@ pipeline {
     }
     
     stages {
+        
+        
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Setup Tools') {
             steps {
                 // Install and configure JFrog CLI
@@ -29,12 +36,6 @@ pipeline {
                     jfrog config add artifactory --url=${ARTIFACTORY_URL} --user=${ARTIFACTORY_CREDS_USR} --password=${ARTIFACTORY_CREDS_PSW} --interactive=false
                     jfrog rt c show
                 '''
-            }
-        }
-        
-        stage('Checkout') {
-            steps {
-                checkout scm
             }
         }
         
