@@ -22,7 +22,14 @@ pipeline{
         
         stage('Build') {
             steps {
-                sh 'dotnet build --configuration Release --no-restore'
+                
+                script {
+                    sh """
+                    pwd
+                    ls
+                    dotnet build --configuration Release --no-restore
+                    """
+                }
             }
         }
         
